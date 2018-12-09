@@ -18,3 +18,23 @@ function expandedForm(num) {
     //num1已剩最大一个整数
     return num1 + sum;
   }
+
+
+//answer1
+function expandedForm(num) {
+  var arr = num.toString(10).split("");
+  var zeros = arr.length-1;
+  var newZero = zeros;
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] != '0') {
+      while (newZero > 0) {
+        arr[i] = arr[i] + "0"
+        newZero--
+      }
+      newArr.push(arr[i]);
+    }
+    newZero = zeros -= 1;
+  }
+  return newArr.join(" + ");
+}
